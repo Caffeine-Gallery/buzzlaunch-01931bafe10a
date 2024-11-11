@@ -4,7 +4,7 @@ async function initializeCountdown() {
     try {
         const loading = document.getElementById('loading');
         
-        // Target date: November 15th, 2024
+        // Target date: November 15th, 2024 00:00:00 UTC
         const targetDate = new Date('2024-11-15T00:00:00Z').getTime();
         
         loading.style.display = 'none';
@@ -15,7 +15,7 @@ async function initializeCountdown() {
             
             if (timeLeft <= 0) {
                 document.querySelector('.countdown-container').innerHTML = 
-                    '<div class="countdown-box" style="width: 100%"><span>We are Live!</span></div>';
+                    '<div class="countdown-box" style="width: 100%"><span>Beta codes are launching!</span></div>';
                 return;
             }
 
