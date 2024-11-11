@@ -40,8 +40,26 @@ h1 {
 
 .tagline {
     font-size: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: #6dd5ed;
+}
+
+.feature-image-container {
+    margin: 0 auto 3rem;
+    max-width: 600px;
+    padding: 0 1rem;
+}
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(109, 213, 237, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.feature-image:hover {
+    transform: scale(1.02);
 }
 
 .countdown-container {
@@ -81,6 +99,11 @@ h1 {
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
+    }
+
+    .feature-image-container {
+        max-width: 100%;
+        padding: 0 0.5rem;
     }
 
     .countdown-container {
