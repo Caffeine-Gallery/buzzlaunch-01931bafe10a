@@ -3,31 +3,29 @@ import { backend } from "declarations/backend";
 async function initializeCountdown() {
     try {
         const loading = document.getElementById('loading');
-        const targetDate = await backend.getTargetDate();
-        const currentTime = await backend.getCurrentTime();
+        
+        // Target date: November 15th, 2024
+        const targetDate = new Date('2024-11-15T00:00:00Z').getTime();
         
         loading.style.display = 'none';
         
         function updateCountdown() {
-            const now = Date.now() * 1000000; // Convert to nanoseconds
+            const now = new Date().getTime();
             const timeLeft = targetDate - now;
             
             if (timeLeft <= 0) {
-                document.querySelector('.countdown-container').innerHTML = '<h2>We are Live!</h2>';
+                document.querySelector('.countdown-container').innerHTML = 
+                    '<div class="countdown-box" style="width: 100%"><span>We are Live!</span></div>';
                 return;
             }
 
-            // Convert nanoseconds to regular time units
-            const second = 1000000000;
-            const minute = second * 60;
-            const hour = minute * 60;
-            const day = hour * 24;
+            // Calculate time units
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-            const days = Math.floor(timeLeft / day);
-            const hours = Math.floor((timeLeft % day) / hour);
-            const minutes = Math.floor((timeLeft % hour) / minute);
-            const seconds = Math.floor((timeLeft % minute) / second);
-
+            // Update DOM
             document.getElementById('days').textContent = String(days).padStart(2, '0');
             document.getElementById('hours').textContent = String(hours).padStart(2, '0');
             document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
@@ -40,8 +38,42 @@ async function initializeCountdown() {
 
     } catch (error) {
         console.error('Error initializing countdown:', error);
-        document.getElementById('loading').innerHTML = '<p class="text-danger">Error loading countdown. Please refresh the page.</p>';
+        document.getElementById('loading').innerHTML = 
+            '<p class="text-danger">Error loading countdown. Please refresh the page.</p>';
     }
 }
 
+// Create matrix background effect
+function createMatrixBackground() {
+    const chars = "01";
+    const speed = 50;
+    const fontSize = 10;
+    
+    setInterval(() => {
+        const container = document.querySelector('.matrix-bg');
+        const span = document.createElement('span');
+        span.style.position = 'absolute';
+        span.style.left = Math.random() * 100 + '%';
+        span.style.color = '#20c20e';
+        span.style.opacity = '0.1';
+        span.style.fontSize = fontSize + 'px';
+        span.style.fontFamily = 'Courier New, monospace';
+        span.textContent = chars[Math.floor(Math.random() * chars.length)];
+        
+        container.appendChild(span);
+        
+        let top = 0;
+        const animation = setInterval(() => {
+            top += 2;
+            span.style.top = top + 'px';
+            
+            if (top > window.innerHeight) {
+                clearInterval(animation);
+                span.remove();
+            }
+        }, speed);
+    }, 100);
+}
+
 initializeCountdown();
+createMatrixBackground();
