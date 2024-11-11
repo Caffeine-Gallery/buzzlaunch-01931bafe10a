@@ -4,8 +4,9 @@ async function initializeCountdown() {
     try {
         const loading = document.getElementById('loading');
         
-        // Target date: November 15th, 2024 00:00:00 UTC
-        const targetDate = new Date('2024-11-15T00:00:00Z').getTime();
+        // Target date: November 15th, 2024 00:00:00 PST
+        const targetDate = new Date('2024-11-15T08:00:00Z').getTime();
+        // Note: We use 08:00:00Z which is 00:00:00 PST (UTC-8)
         
         loading.style.display = 'none';
         
