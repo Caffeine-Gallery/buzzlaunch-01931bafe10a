@@ -22,8 +22,8 @@ body {
                 repeating-linear-gradient(0deg, 
                     transparent 0,
                     transparent 50px,
-                    rgba(32, 194, 14, 0.1) 50px,
-                    rgba(32, 194, 14, 0.1) 51px);
+                    rgba(0, 0, 0, 0.05) 50px,
+                    rgba(0, 0, 0, 0.05) 51px);
     z-index: -1;
 }
 
@@ -51,7 +51,7 @@ h1 {
     margin-bottom: 1rem;
     letter-spacing: 4px;
     font-weight: bold;
-    background: linear-gradient(45deg, #1a1a1a, #20c20e);
+    background: linear-gradient(45deg, #000000, #666666);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
@@ -60,7 +60,7 @@ h1 {
 .tagline {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    color: #20c20e;
+    color: #333333;
     font-family: 'Courier New', monospace;
 }
 
@@ -90,11 +90,11 @@ h1 {
 }
 
 .countdown-box {
-    background: rgba(32, 194, 14, 0.1);
+    background: rgba(0, 0, 0, 0.05);
     padding: 1.5rem;
     border-radius: 10px;
     min-width: 120px;
-    border: 1px solid rgba(32, 194, 14, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -109,7 +109,7 @@ h1 {
     background: linear-gradient(
         45deg,
         transparent 0%,
-        rgba(32, 194, 14, 0.1) 50%,
+        rgba(0, 0, 0, 0.05) 50%,
         transparent 100%
     );
     animation: shine 3s infinite;
@@ -129,20 +129,20 @@ h1 {
     font-weight: bold;
     display: block;
     margin-bottom: 0.5rem;
-    color: #20c20e;
+    color: #000000;
     font-family: 'Courier New', monospace;
 }
 
 .countdown-box label {
     font-size: 1rem;
-    color: #1a1a1a;
+    color: #666666;
     text-transform: uppercase;
     font-family: 'Courier New', monospace;
 }
 
 .launch-date {
     font-size: 1.2rem;
-    color: #666;
+    color: #666666;
     font-family: 'Courier New', monospace;
 }
 

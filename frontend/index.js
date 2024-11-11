@@ -54,7 +54,7 @@ function createMatrixBackground() {
         const span = document.createElement('span');
         span.style.position = 'absolute';
         span.style.left = Math.random() * 100 + '%';
-        span.style.color = '#20c20e';
+        span.style.color = '#333333';
         span.style.opacity = '0.1';
         span.style.fontSize = fontSize + 'px';
         span.style.fontFamily = 'Courier New, monospace';
