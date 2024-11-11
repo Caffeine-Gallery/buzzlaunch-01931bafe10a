@@ -1,0 +1,4 @@
+service : {
+  getCurrentTime: () -> (int) query;
+  getTargetDate: () -> (int) query;
+}
